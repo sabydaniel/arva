@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="cargo_receipt_template">
+        <t t-call="web.basic_layout">
+            <main>
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="company" t-value="o.company_id or env.company"/>
+
+                    <div style="
+                        border:1px solid #000;
+                        width:100%;
+                        font-size:13.5px;
+                        line-height:1.45;
+                        font-family:Arial, Helvetica, sans-serif;
+                    ">
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr>
+                                <td style="width:45%; border:1px solid #000; padding:10px; vertical-align:top;">
+                                    <strong>Shipper</strong>
+                                </td>
+
+                                <td rowspan="3" style="width:55%; padding:10px; vertical-align:top;">
+
+                                    <table style="width:100%; border-collapse:collapse;">
+                                        <tr>
+                                            <td style="width:65%; vertical-align:top;">
+                                                <div style="font-size:20px; font-weight:bold;">
+                                                    BILL OF LADING
+                                                </div>
+                                                <div style="font-weight:bold;">
+                                                    ORIGINAL
+                                                </div>
+                                            </td>
+
+                                            <td style="width:35%; vertical-align:top;">
+                                                <table style="width:100%; border-collapse:collapse;">
+                                                    <tr>
+                                                        <td style="border:1px solid #000; padding:6px; font-weight:bold;">
+                                                            Bill / Lading Number
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid #000; padding:6px; text-align:center; font-weight:bold;">
+                                                            <t t-esc="o.name"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <div style="text-align:center; margin-top:12px;">
+
+                                        <t t-if="company.logo_web">
+                                            <img t-att-src="'/web/image/res.company/%s/logo_web' % company.id"
+                                                 style="max-height:70px; max-width:160px; margin-bottom:6px;"/>
+                                        </t>
+
+                                        <div style="font-size:15px; font-weight:bold;">
+                                            <t t-esc="company.name"/>
+                                        </div>
+
+                                        <div style="font-size:12px; line-height:1.4;">
+                                            <t t-if="company.partner_id.street">
+                                                <t t-esc="company.partner_id.street"/>
+                                                <br/>
+                                            </t>
+                                            <t t-if="company.partner_id.street2">
+                                                <t t-esc="company.partner_id.street2"/>
+                                                <br/>
+                                            </t>
+                                            <t t-if="company.partner_id.city">
+                                                <t t-esc="company.partner_id.city"/>
+                                            </t>
+                                            <t t-if="company.partner_id.zip">
+                                                -
+                                                <t t-esc="company.partner_id.zip"/>
+                                            </t>
+                                            <br/>
+                                            <t t-if="company.partner_id.country_id">
+                                                <t t-esc="company.partner_id.country_id.name"/>
+                                            </t>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border:1px solid #000; padding:10px;">
+                                    <strong>Consignee (If To Order so indicate)</strong>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border:1px solid #000; padding:10px;">
+                                    <strong>Notify Party (No claim shall attach for failure to notify)</strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr>
+                                <td style="width:33.33%; border:1px solid #000; padding:8px;">
+                                    <strong>Vessel</strong>
+                                </td>
+                                <td style="width:33.33%; border:1px solid #000; padding:8px;">
+                                    <strong>Port of Loading</strong>
+                                </td>
+                                <td style="width:33.33%; border:1px solid #000; padding:8px;">
+                                    <strong>Excess Value Declaration</strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr>
+                                <td style="border:1px solid #000; padding:8px;">
+                                    <strong>Port of Discharge</strong>
+                                </td>
+                                <td style="border:1px solid #000; padding:8px;">
+                                    <strong>Destination (if on-carriage)</strong>
+                                </td>
+                                <td style="border:1px solid #000; padding:8px;">
+                                    <strong>Freight payable at</strong>
+                                </td>
+                                <td style="border:1px solid #000; padding:8px;">
+                                    <strong>Number of Originals</strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr>
+                                <th style="border:1px solid #000; padding:8px;">Marks and Numbers</th>
+                                <th style="border:1px solid #000; padding:8px;">
+                                    Number and kind of packages, Description of Goods
+                                </th>
+                                <th style="border:1px solid #000; padding:8px;">Gross Weight</th>
+                                <th style="border:1px solid #000; padding:8px;">Measurement</th>
+                            </tr>
+
+                            <tr style="height:200px;">
+                                <td style="border:1px solid #000;"></td>
+                                <td style="border:1px solid #000;"></td>
+                                <td style="border:1px solid #000;"></td>
+                                <td style="border:1px solid #000;"></td>
+                            </tr>
+                        </table>
+
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr>
+                                <td style="border:1px solid #000; padding:8px;">Consol Ref</td>
+                                <td style="border:1px solid #000; padding:8px; text-align:right;">Shipped on Board</td>
+                            </tr>
+                        </table>
+
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr>
+                                <td style="width:50%; border:1px solid #000; padding:10px;">
+                                    <strong>Bill of Lading must be surrendered to</strong>
+                                </td>
+                                <td style="width:50%; border:1px solid #000; padding:10px;">
+                                    <strong>Freight Details, Charges, etc.</strong>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border:1px solid #000; padding:10px;">
+                                    <strong>Place and Date of Issue</strong>
+                                </td>
+                                <td style="border:1px solid #000;"></td>
+                            </tr>
+
+                            <tr>
+                                <td style="width:66.66%; border:1px solid #000; padding:0;">
+                                    <table style="width:100%; border-collapse:collapse;">
+                                        <tr>
+                                            <td style="width:50%; border-right:1px solid #000; padding:10px;">
+                                                <strong>Place of Receipt</strong>
+                                            </td>
+                                            <td style="width:50%; padding:10px;">
+                                                <strong>Place of Delivery</strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td style="width:33.33%; border:1px solid #000; padding:10px;">
+                                    <strong>Total No. of Packages (in words)</strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </main>
+        </t>
+    </template>
+</odoo>

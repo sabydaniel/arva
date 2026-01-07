@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_original_cargo_receipt" model="ir.actions.report">
+        <field name="name">Original Cargo Receipt</field>
+
+        <field name="model">ship.shipment</field>
+        <field name="report_type">qweb-pdf</field>
+
+        <field name="report_name">cargo_reports.cargo_receipt_template</field>
+        <field name="report_file">cargo_reports.cargo_receipt_template</field>
+
+        <field name="binding_model_id"
+               search="[('model', '=', 'ship.shipment')]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
