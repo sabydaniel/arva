@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_ship_report_wizard" model="ir.ui.view">
+        <field name="name">ship.report.wizard.form</field>
+        <field name="model">ship.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Ship Report" create="false" edit="false">
+                <group col="2">
+                    <group>
+                        <field name="job_status"/>
+                        <field name="shipment_ref"/>
+                    </group>
+                    <group>
+                        <field name="job_opened_from"/>
+                        <field name="job_opened_to"/>
+                    </group>
+                </group>
+
+                <separator string="Templates (Used for PDF / XLSX only)"/>
+
+                <group>
+                    <field name="template_detail"/>
+                    <field name="template_summary"/>
+                </group>
+
+                <footer>
+                    <button name="action_view"
+                            string="View"
+                            type="object"
+                            class="btn-primary"/>
+
+                    <button name="action_print_pdf"
+                            string="Print PDF"
+                            type="object"/>
+
+                    <button name="action_export_xlsx"
+                            string="Export XLSX"
+                            type="object"/>
+
+                    <button string="Cancel"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ship_report_wizard" model="ir.actions.act_window">
+        <field name="name">Ship Report</field>
+        <field name="res_model">ship.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

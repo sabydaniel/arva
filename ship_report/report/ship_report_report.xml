@@ -1,0 +1,10 @@
+<odoo>
+    <template id="ship_report_router">
+        <t t-if="report_type == 'detail'">
+            <t t-call="ship_report.ship_report_detail"/>
+        </t>
+        <t t-if="report_type == 'summary'">
+            <t t-call="ship_report.ship_report_summary"/>
+        </t>
+    </template>
+</odoo>
