@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem
+        id="menu_ship_report"
+        name="Ship Report"
+        parent="shipping.menu_shipping_new_report"
+        action="action_ship_report_wizard"
+        sequence="50"
+        groups="shipping.group_shipping_operator,shipping.group_shipping_manager,shipping.group_shipping_admin"/>
+</odoo>

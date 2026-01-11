@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="ship_reports_tree_view" model="ir.ui.view">
+        <field name="name">ship.reports.tree</field>
+        <field name="model">quotation.list</field>
+        <field name="inherit_id" ref="quotation_list.view_quotation_list_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="string">Shipping Reports</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

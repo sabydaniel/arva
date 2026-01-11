@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="ship_report_wizard_view" model="ir.ui.view">
+        <field name="name">ship.report.wizard.form</field>
+        <field name="model">ship.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Shipping Report">
+                <group>
+                    <field name="from_date" required="1"/>
+                    <field name="to_date" required="1"/>
+                </group>
+
+                <footer>
+
+                    <button name="action_view_pdf"
+                            string="View"
+                            type="object"
+                            class="btn-primary"/>
+
+                    <button name="action_print_pdf"
+                            string="Print PDF"
+                            type="object"
+                            class="btn-secondary"/>
+
+                    <button name="action_export_xlsx"
+                            string="Export XLSX"
+                            type="object"
+                            class="btn-secondary"/>
+
+                    <button string="Cancel"
+                            special="cancel"
+                            class="btn-link"/>
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
