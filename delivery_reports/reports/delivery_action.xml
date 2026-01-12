@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_delivery_report" model="ir.actions.report">
+        <field name="name">Delivery Instructions</field>
+        <field name="model">ship.shipment</field>
+        <field name="report_type">qweb-pdf</field>
+
+
+        <field name="report_name">delivery_reports.delivery_report_template</field>
+        <field name="report_file">delivery_reports.delivery_report_template</field>
+
+
+        <field name="binding_model_id"
+               search="[('model','=','ship.shipment')]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+</odoo>

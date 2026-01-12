@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="delivery_report_template">
+        <t t-call="web.external_layout">
+
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                }
+
+                td, th {
+                    border: 1px solid #000;
+                    padding: 4px;
+                    font-size: 10px;
+                    vertical-align: top;
+                }
+
+                .center {
+                    text-align: center;
+                    font-weight: bold;
+                }
+
+                .h-small  { height: 12mm; }
+                .h-medium { height: 25mm; }
+                .h-large  { height: 120mm; }
+            </style>
+
+            <main>
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+
+
+                        <table>
+                            <tr>
+                                <td class="center">
+                                    DELIVERY REPORT
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table>
+                            <tr>
+                                <td style="width:50%;" class="h-medium">
+                                    <strong>TRANSPORTER</strong><br/>
+                                    <t t-esc="o.company_id.name"/><br/>
+                                    <t t-esc="o.company_id.street"/><br/>
+                                    <t t-esc="o.company_id.city"/>
+                                </td>
+
+                                <td style="width:50%; padding:0;">
+                                    <table>
+                                        <tr>
+                                            <td class="h-small" style="border-right:0;">
+                                                <strong>SHIPMENT NO.</strong><br/>
+                                                <t t-esc="o.name"/>
+                                            </td>
+                                            <td class="h-small" style="border-left:0;">
+                                                <strong>DATE</strong><br/>
+                                                <t t-esc="o.create_date"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2" class="h-small">
+                                                <strong>PREPARED BY</strong><br/>
+                                                <t t-esc="env.user.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2" class="h-small">
+                                                <strong>CONSIGNEE'S REFERENCE</strong><br/>
+                                                <t t-if="o._fields.get('client_reference')">
+                                                    <t t-esc="o.client_reference"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="h-small" style="border-right:0;">
+                                                <strong>MASTER AWB</strong><br/>
+                                                <t t-if="o._fields.get('master_awb')">
+                                                    <t t-esc="o.master_awb"/>
+                                                </t>
+                                            </td>
+                                            <td class="h-small" style="border-left:0;">
+                                                <strong>HOUSE AWB</strong><br/>
+                                                <t t-if="o._fields.get('house_awb')">
+                                                    <t t-esc="o.house_awb"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table>
+                            <tr>
+                                <td style="width:50%;" class="h-medium">
+                                    <strong>CONSIGNEE</strong><br/>
+                                    <t t-if="o._fields.get('consignee_id')">
+                                        <t t-esc="o.consignee_id.name"/><br/>
+                                        <t t-esc="o.consignee_id.street"/><br/>
+                                        <t t-esc="o.consignee_id.city"/>
+                                    </t>
+                                </td>
+
+                                <td style="width:50%; padding:0;">
+                                    <table>
+                                        <tr>
+                                            <td class="h-small" style="border-right:0;">
+                                                <strong>FLIGHT</strong><br/>
+                                                <t t-if="o._fields.get('flight_no')">
+                                                    <t t-esc="o.flight_no"/>
+                                                </t>
+                                            </td>
+                                            <td class="h-small" style="border-left:0;">
+                                                <strong>FLIGHT DATE</strong><br/>
+                                                <t t-if="o._fields.get('flight_date')">
+                                                    <t t-esc="o.flight_date"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="h-small" style="border-right:0;">
+                                                <strong>LOADING PORT</strong><br/>
+                                                <t t-if="o._fields.get('loading_port_id')">
+                                                    <t t-esc="o.loading_port_id.name"/>
+                                                </t>
+                                            </td>
+                                            <td class="h-small" style="border-left:0;">
+                                                <strong>ATD</strong><br/>
+                                                <t t-if="o._fields.get('atd')">
+                                                    <t t-esc="o.atd"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="h-small" style="border-right:0;">
+                                                <strong>DISCHARGE PORT</strong><br/>
+                                                <t t-if="o._fields.get('discharge_port_id')">
+                                                    <t t-esc="o.discharge_port_id.name"/>
+                                                </t>
+                                            </td>
+                                            <td class="h-small" style="border-left:0;">
+                                                <strong>ATA</strong><br/>
+                                                <t t-if="o._fields.get('ata')">
+                                                    <t t-esc="o.ata"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table>
+                            <tr>
+                                <th style="width:55%;">DESCRIPTION OF PACKAGES AND GOODS</th>
+                                <th style="width:15%;">NO. OF PKGS</th>
+                                <th style="width:15%;">GROSS WEIGHT</th>
+                                <th style="width:15%;">MEASUREMENT</th>
+                            </tr>
+                            <tr>
+                                <td class="h-large">
+                                    <t t-if="o._fields.get('goods_description')">
+                                        <t t-esc="o.goods_description"/>
+                                    </t>
+                                </td>
+                                <td class="h-large center">
+                                    <t t-if="o._fields.get('package_count')">
+                                        <t t-esc="o.package_count"/>
+                                    </t>
+                                </td>
+                                <td class="h-large center">
+                                    <t t-if="o._fields.get('gross_weight')">
+                                        <t t-esc="o.gross_weight"/>
+                                    </t>
+                                </td>
+                                <td class="h-large center">
+                                    <t t-if="o._fields.get('measurement')">
+                                        <t t-esc="o.measurement"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table>
+                            <tr>
+                                <td class="h-small">
+                                    <strong>REMARKS</strong><br/>
+                                    <t t-if="o._fields.get('remarks')">
+                                        <t t-esc="o.remarks"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </t>
+            </main>
+
+        </t>
+    </template>
+
+</odoo>
