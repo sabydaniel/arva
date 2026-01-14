@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shipment_report_wizard,shipment.report.wizard,model_shipment_report_wizard,,1,0,1,0

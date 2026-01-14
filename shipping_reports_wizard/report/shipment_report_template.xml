@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="shipment_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <main>
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+
+                            <h2 style="text-align:center;">Shipment Report</h2>
+
+                            <p>
+                                <strong>Shipment No:</strong>
+                                <span t-esc="o.name"/>
+                            </p>
+
+                            <p>
+                                <strong>Created On:</strong>
+                                <span t-esc="o.create_date"/>
+                            </p>
+
+                            <p>
+                                <strong>Company:</strong>
+                                <span t-esc="o.company_id.name"/>
+                            </p>
+
+                            <p>
+                                <strong>Sales Person:</strong>
+                                <span t-esc="o.employee_id.name"/>
+                            </p>
+
+                            <p>
+                                <strong>Destination:</strong>
+                                <span t-esc="o.final_id.name"/>
+                            </p>
+
+                            <p>
+                                <strong>Expense:</strong>
+                                <span t-esc="o.expense"/>
+                                <span t-esc="o.currency_id.name"/>
+                            </p>
+
+                        </div>
+                    </t>
+                </main>
+            </t>
+        </t>
+    </template>
+</odoo>
