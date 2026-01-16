@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_arrival_notice" model="ir.actions.report">
+        <field name="name">Arrival Notice</field>
+        <field name="model">ship.shipment</field>
+        <field name="report_type">qweb-pdf</field>
+
+
+        <field name="report_name">arrival_notice.arrival_template</field>
+        <field name="report_file">arrival_notice.arrival_template</field>
+
+        <field name="binding_model_id"
+               search="[('model', '=', 'ship.shipment')]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

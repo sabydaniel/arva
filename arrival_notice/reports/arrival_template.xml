@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <template id="arrival_template">
+    <t t-call="web.external_layout">
+
+      <style>
+        @page {
+          size: A4;
+          margin: 10mm;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          table-layout: fixed;
+          font-family: Arial, sans-serif;
+        }
+
+        td, th {
+          border: 1px solid #000;
+          padding: 4px;
+          font-size: 10px;
+          vertical-align: top;
+        }
+
+        .center { text-align: center; }
+        .right  { text-align: right; }
+        .bold   { font-weight: bold; }
+      </style>
+
+
+      <t t-set="header">
+        <table>
+          <tr>
+            <td style="width:25%;border-right:0;">
+              <img t-att-src="'/web/image/res.company/%s/logo_web' % env.company.id"
+                   style="height:38px;"/>
+            </td>
+            <td style="width:75%;text-align:right;border-left:0;">
+              <div class="bold" style="font-size:15px;">
+                <t t-esc="env.company.name"/>
+              </div>
+              <t t-esc="env.company.street"/><br/>
+              <t t-esc="env.company.city"/>
+              <t t-if="env.company.zip"> - <t t-esc="env.company.zip"/></t><br/>
+              <t t-esc="env.company.country_id.name"/>
+            </td>
+          </tr>
+        </table>
+      </t>
+
+      <main>
+        <t t-foreach="docs" t-as="o">
+
+          <table>
+
+
+            <tr>
+              <td colspan="4" class="center bold">
+                ARRIVAL NOTICE / ARRIVAL CONFIRMATION
+              </td>
+            </tr>
+
+
+            <tr>
+              <td colspan="2" rowspan="4" style="height:40mm;">
+                <span class="bold">SHIPPER</span><br/>
+                <t t-esc="o.company_id.name"/><br/>
+                <t t-esc="o.company_id.street"/><br/>
+                <t t-esc="o.company_id.city"/>
+              </td>
+              <td style="height:10mm;">
+                <span class="bold">SHIPMENT NO.</span><br/>
+                <t t-esc="o.name"/>
+              </td>
+              <td style="height:9mm;">
+                <span class="bold">DATE</span><br/>
+                <t t-esc="o.create_date"/>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" style="height:10mm;">
+                <span class="bold">PREPARED BY</span><br/>
+                <t t-esc="env.user.name"/>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" style="height:10mm;">
+                <span class="bold">CONSIGNEE'S REFERENCE</span><br/>
+                <t t-esc="o.client_reference if o._fields.get('client_reference') else ''"/>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="height:10mm;">
+                <span class="bold">MASTER AWB</span><br/>
+                <t t-esc="o.master_awb if o._fields.get('master_awb') else ''"/>
+              </td>
+              <td style="height:10mm;">
+                <span class="bold">HOUSE AWB</span><br/>
+                <t t-esc="o.house_awb if o._fields.get('house_awb') else ''"/>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td colspan="2" rowspan="4" style="height:40mm;">
+                <span class="bold">CONSIGNEE</span><br/>
+                <t t-esc="o.consignee_id.name if o._fields.get('consignee_id') else ''"/><br/>
+                <t t-esc="o.consignee_id.street if o._fields.get('consignee_id') else ''"/><br/>
+                <t t-esc="o.consignee_id.city if o._fields.get('consignee_id') else ''"/>
+              </td>
+              <td style="height:10mm;">
+                <span class="bold">FLIGHT</span><br/>
+                <t t-esc="o.flight_no if o._fields.get('flight_no') else ''"/>
+              </td>
+              <td style="height:10mm;">
+                <span class="bold">FLIGHT DATE</span><br/>
+                <t t-esc="o.flight_date if o._fields.get('flight_date') else ''"/>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="height:10mm;">
+                <span class="bold">LOADING PORT</span><br/>
+                <t t-esc="o.loading_port_id.name if o._fields.get('loading_port_id') else ''"/>
+              </td>
+              <td style="height:10mm;">
+                <span class="bold">ATD</span><br/>
+                <t t-esc="o.atd if o._fields.get('atd') else ''"/>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="height:10mm;">
+                <span class="bold">DISCHARGE PORT</span><br/>
+                <t t-esc="o.discharge_port_id.name if o._fields.get('discharge_port_id') else ''"/>
+              </td>
+              <td style="height:10mm;">
+                <span class="bold">ATA</span><br/>
+                <t t-esc="o.ata if o._fields.get('ata') else ''"/>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" style="height:10mm;">
+                <span class="bold">PLACE OF DELIVERY</span><br/>
+                <t t-esc="o.place_of_delivery if o._fields.get('place_of_delivery') else ''"/>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td colspan="2" style="height:25mm;">
+                <span class="bold">NOTIFY PARTY</span><br/>
+                <t t-esc="o.notify_party_id.name if o._fields.get('notify_party_id') else ''"/><br/>
+                <t t-esc="o.notify_party_id.city if o._fields.get('notify_party_id') else ''"/>
+              </td>
+              <td colspan="2" style="height:25mm;">
+                <span class="bold">CUSTOMS BROKER</span><br/>
+                <t t-esc="o.customs_broker_id.name if o._fields.get('customs_broker_id') else ''"/><br/>
+                <t t-esc="o.customs_broker_id.street if o._fields.get('customs_broker_id') else ''"/>
+              </td>
+            </tr>
+
+
+            <tr>
+              <th style="width:70%;">DESCRIPTION OF PACKAGES AND GOODS</th>
+              <th style="width:15%;">NO. OF PKGS</th>
+              <th style="width:15%;">GROSS WEIGHT</th>
+              <th style="width:15%;">MEASUREMENT</th>
+            </tr>
+
+            <tr>
+              <td style="height:100mm;"></td>
+              <td style="height:100mm;"></td>
+              <td style="height:100mm;"></td>
+              <td style="height:100mm;"></td>
+            </tr>
+
+
+            <tr>
+              <td colspan="4" style="height:10mm;">
+                <span class="bold">REMARKS :</span>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td colspan="4" style="font-size:9px;">
+                <span class="bold">IMPORTANT NOTICE</span><br/>
+                1. Freight will be released upon receipt of full payment and duly endorsed original bill of lading.<br/>
+                2. Demurrage / storage charges will be evaluated after free time period and charged to consignee.<br/>
+                3. Please allow at least 24–48 hours for cargo release after receipt of original bill of lading.
+              </td>
+            </tr>
+
+          </table>
+
+        </t>
+      </main>
+
+    </t>
+  </template>
+
+</odoo>
