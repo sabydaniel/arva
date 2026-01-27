@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_report_sea_export_work_volume" model="ir.actions.report">
+        <field name="name">Sea Export Work Volume</field>
+        <field name="model">ship.shipment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sea_export_work_volume.report_sea_export_work_volume</field>
+        <field name="report_file">sea_export_work_volume.report_sea_export_work_volume</field>
+        <field name="print_report_name">'Sea Export Work Volume'</field>
+    </record>
+
+</odoo>

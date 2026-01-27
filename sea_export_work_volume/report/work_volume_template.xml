@@ -1,0 +1,41 @@
+<odoo>
+    <template id="report_sea_export_work_volume">
+        <t t-call="web.basic_layout">
+            <div class="page">
+
+                <h2 style="text-align:center;">
+                    <t t-esc="company.name"/>
+                </h2>
+
+                <h3 style="text-align:center; color:orange;">
+                    Work Volume Summary Shipment (Sea Export)
+                </h3>
+
+                <p>
+                    <b>Shipment Date:</b>
+                    <t t-esc="wizard.date_from"/> to
+                    <t t-esc="wizard.date_to"/>
+                    <br/>
+                    <b>Branch:</b>
+                    <t t-esc="company.name"/>
+                </p>
+
+                <br/>
+
+                <table class="table table-sm">
+                    <tr><td>Total No of Jobs Handled</td><td><b><t t-esc="total_jobs"/></b></td></tr>
+                    <tr><td>Total No of Packages</td><td><b><t t-esc="total_pkgs"/></b></td></tr>
+                    <tr><td>Total Gross Weight</td><td><b><t t-esc="total_weight"/> MTS</b></td></tr>
+                    <tr><td>Total Measurement</td><td><b><t t-esc="total_cbm"/> CBM</b></td></tr>
+                    <tr><td>Total Freight Prepaid</td><td><b><t t-esc="total_freight_prepaid"/> AED</b></td></tr>
+                    <tr><td>Total Freight Collect</td><td><b><t t-esc="total_freight_collect"/> AED</b></td></tr>
+                    <tr><td>Total Other Charges Prepaid</td><td><b><t t-esc="total_other_prepaid"/> AED</b></td></tr>
+                    <tr><td>Total Other Charges Collect</td><td><b><t t-esc="total_other_collect"/> AED</b></td></tr>
+                    <tr><td>Total Prepaid</td><td><b><t t-esc="total_prepaid"/> AED</b></td></tr>
+                    <tr><td>Total Collect</td><td><b><t t-esc="total_collect"/> AED</b></td></tr>
+                </table>
+
+            </div>
+        </t>
+    </template>
+</odoo>

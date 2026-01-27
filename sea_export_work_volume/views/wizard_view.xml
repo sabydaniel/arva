@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_sea_export_work_volume_wizard" model="ir.ui.view">
+        <field name="name">sea.export.work.volume.wizard.form</field>
+        <field name="model">sea.export.work.volume.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sea Export Work Volume">
+                <group col="4">
+
+                    <group>
+                        <field name="date_from"/>
+                        <field name="shipper_id"/>
+                        <field name="load_port_id"/>
+                    </group>
+
+                    <group>
+                        <field name="date_to"/>
+                        <field name="shipping_line_id"/>
+                        <field name="discharge_port_id"/>
+                    </group>
+
+                    <group>
+                        <field name="type"/>
+                        <field name="consignee_id"/>
+                        <field name="consol_type"/>
+                    </group>
+
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="cargo_type"/>
+                    </group>
+
+                </group>
+
+                <footer>
+                    <button name="action_generate_pdf"
+                            string="Generate"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
