@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="view_shipment_status_wizard" model="ir.ui.view">
+    <field name="name">shipment.status.wizard.form</field>
+    <field name="model">shipment.status.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Sea Export Shipment Status Register">
+
+        <group col="4">
+
+          <field name="date_filter"/>
+
+          <field name="date_from"
+                 modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+
+          <field name="date_to"
+                 modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+
+          <field name="branch_id"/>
+          <field name="shipping_line_id"/>
+          <field name="shipper_id"/>
+          <field name="consignee_id"/>
+        </group>
+
+        <footer>
+          <button name="action_generate_xlsx"
+                  type="object"
+                  string="Generate"
+                  class="btn-primary"/>
+          <button string="Cancel"
+                  class="btn-secondary"
+                  special="cancel"/>
+        </footer>
+
+      </form>
+    </field>
+  </record>
+
+</odoo>

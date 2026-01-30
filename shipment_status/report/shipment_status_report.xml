@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="shipment_status_xlsx" model="ir.actions.report">
+        <field name="name">Sea Export Shipment Status Register</field>
+        <field name="model">shipment.status.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">shipment_status.shipment_status_xlsx</field>
+        <field name="report_file">shipment_status.shipment_status_xlsx</field>
+    </record>
+
+</odoo>

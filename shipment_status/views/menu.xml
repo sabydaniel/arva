@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record id="action_shipment_status_wizard" model="ir.actions.act_window">
+        <field name="name">Sea Export Shipment Status Register</field>
+        <field name="res_model">shipment.status.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem
+        id="menu_shipment_status_sea"
+        name="Sea Export Shipment Status Register"
+        parent="shipping.menu_shipping_new_report"
+        action="action_shipment_status_wizard"
+        sequence="97"/>
+
+</odoo>
