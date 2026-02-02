@@ -1,8 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="action_ship_report_xlsx" model="ir.actions.report">
-        <field name="name">Ship Report XLSX</field>
+
+    <record id="summary_xlsx_report" model="ir.actions.report">
+        <field name="name">Summary By Job (XLSX)</field>
         <field name="model">ship.report.wizard</field>
         <field name="report_type">xlsx</field>
-        <field name="report_name">ship_report.ship_report_xlsx</field>
+        <field name="report_name">ship_report.summary_xlsx</field>
     </record>
+
+    <record id="detail_xlsx_report" model="ir.actions.report">
+        <field name="name">Transaction Detail By Job (XLSX)</field>
+        <field name="model">ship.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">ship_report.detail_xlsx</field>
+    </record>
+
 </odoo>
