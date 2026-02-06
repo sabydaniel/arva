@@ -1,0 +1,9 @@
+<odoo>
+    <record id="sea_consol_register_xlsx" model="ir.actions.report">
+        <field name="name">Sea Export Consol Register XLS</field>
+        <field name="model">ship.shipment</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">sea_consol_register.simple_xlsx</field>
+        <field name="report_file">Sea_Export_Consol_Register</field>
+    </record>
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sea_export_work_volume,access_sea_export_work_volume,model_sea_export_work_volume_wizard,,1,1,1,1

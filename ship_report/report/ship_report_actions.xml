@@ -1,0 +1,21 @@
+<odoo>
+
+    <record id="action_ship_report_detail_pdf" model="ir.actions.report">
+        <field name="name">Ship Report - Detail</field>
+        <field name="model">ship.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ship_report.ship_report_detail_qweb</field>
+        <field name="report_file">ship_report.ship_report_detail_qweb</field>
+        <field name="print_report_name">'Ship Report - Detail'</field>
+    </record>
+
+    <record id="action_ship_report_summary_pdf" model="ir.actions.report">
+        <field name="name">Ship Report - Summary</field>
+        <field name="model">ship.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ship_report.ship_report_summary_qweb</field>
+        <field name="report_file">ship_report.ship_report_summary_qweb</field>
+        <field name="print_report_name">'Ship Report - Summary'</field>
+    </record>
+
+</odoo>

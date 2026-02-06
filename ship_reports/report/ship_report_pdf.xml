@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_ship_report_view" model="ir.actions.report">
+        <field name="name">Shipping Report (Preview)</field>
+        <field name="model">ship.report.wizard</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">ship_reports.ship_report_qweb_template</field>
+        <field name="report_file">ship_reports.ship_report_qweb_template</field>
+    </record>
+
+    <record id="action_ship_report_pdf" model="ir.actions.report">
+        <field name="name">Shipping Report (PDF)</field>
+        <field name="model">ship.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ship_reports.ship_report_qweb_template</field>
+        <field name="report_file">ship_reports.ship_report_qweb_template</field>
+        <field name="print_report_name">
+            'Shipping_Report_%s_%s' % (object.from_date, object.to_date)
+        </field>
+    </record>
+
+</odoo>

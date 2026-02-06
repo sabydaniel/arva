@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_quotation_list" model="ir.actions.act_window">
+        <field name="name">Quotation List</field>
+        <field name="res_model">quotation.list</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ship_report_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Shipping Report</field>
+        <field name="res_model">ship.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
