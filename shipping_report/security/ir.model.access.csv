@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_job_profit_charge_report_wizard,job.profit.charge.report.wizard,model_job_profit_charge_report_wizard,base.group_user,1,1,1,1
+access_sea_consol_wizard,sea.consol.wizard,model_sea_consol_wizard,base.group_user,1,0,1,0
+access_sea_export_work_volume_wizard,sea.export.work.volume.wizard,model_sea_export_work_volume_wizard,base.group_user,1,1,1,1
+access_ship_report_wizard,ship.report.wizard,model_ship_report_wizard,base.group_user,1,0,1,0
