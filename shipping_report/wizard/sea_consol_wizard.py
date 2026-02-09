@@ -101,7 +101,7 @@ class SeaConsolWizard(models.TransientModel):
         return {
             "type": "ir.actions.report",
             "report_type": "xlsx",
-            "report_name": "sea_consol_register.simple_xlsx",
+            "report_name": "shipping_report.simple_xlsx",
             "data": {
                 "domain": domain,
                 "date_from": self.date_from,

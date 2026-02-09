@@ -2,6 +2,6 @@
     <menuitem id="menu_ship_job_profit"
           name="Job Profit"
           parent="shipping.menu_shipping_new_report"
-          action="ship_report.action_ship_report_wizard"
+          action="shipping_report.action_ship_report_wizard"
           sequence="30"/>
 </odoo>

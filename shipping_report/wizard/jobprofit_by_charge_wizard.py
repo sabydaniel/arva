@@ -70,5 +70,5 @@ class JobProfitChargeReportWizard(models.TransientModel):
         }
 
         return self.env.ref(
-            'jobprofit_charge.action_jobprofit_by_charge_xlsx'
+            'shipping_report.action_jobprofit_by_charge_xlsx'
         ).report_action(self, data=data)

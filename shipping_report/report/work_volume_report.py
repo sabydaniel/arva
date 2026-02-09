@@ -2,7 +2,7 @@ from odoo import models
 
 
 class SeaExportWorkVolumeReport(models.AbstractModel):
-    _name = "report.sea_export_work_volume.report_sea_export_work_volume"
+    _name = "report.shipping_report.report_sea_export_work_volume"
 
     def _get_report_values(self, docids, data=None):
         wizard = self.env["sea.export.work.volume.wizard"].browse(docids)

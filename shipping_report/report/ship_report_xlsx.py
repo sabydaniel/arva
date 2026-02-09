@@ -1,7 +1,7 @@
 from odoo import models
 
 class ShipReportXlsx(models.AbstractModel):
-    _name = "report.ship_report.ship_profit_xlsx_template"
+    _name = "report.shipping_report.ship_profit_xlsx_template"
     _inherit = "report.report_xlsx.abstract"
 
     def generate_xlsx_report(self, workbook, data, objs):

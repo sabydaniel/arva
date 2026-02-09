@@ -78,5 +78,5 @@ class SeaExportWorkVolumeWizard(models.TransientModel):
             self.date_to = first + relativedelta(day=31)
     def action_generate_pdf(self):
         return self.env.ref(
-            "sea_export_work_volume.action_report_sea_export_work_volume"
+            "shipping_report.action_report_sea_export_work_volume"
         ).report_action(self)

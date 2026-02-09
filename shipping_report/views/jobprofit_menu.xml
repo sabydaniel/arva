@@ -4,7 +4,7 @@
         <field name="name">Job Profit By Charge XLSX</field>
         <field name="model">job.profit.charge.report.wizard</field>
         <field name="report_type">xlsx</field>
-        <field name="report_name">jobprofit_charge.jobprofit_by_charge_xlsx</field>
+        <field name="report_name">shipping_report.jobprofit_by_charge_xlsx</field>
         <field name="report_file">jobprofit_by_charge</field>
     </record>
 

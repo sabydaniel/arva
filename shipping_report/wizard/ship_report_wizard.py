@@ -134,7 +134,7 @@ class ShipReportWizard(models.TransientModel):
         return [], details
 
     def action_print_pdf(self):
-        return self.env.ref('ship_report.ship_report_pdf_action').report_action(self)
+        return self.env.ref('shipping_report.ship_report_pdf_action').report_action(self)
 
     def action_export_xlsx(self):
-        return self.env.ref('ship_report.ship_report_xlsx_action').report_action(self)
+        return self.env.ref('shipping_report.ship_report_xlsx_action').report_action(self)

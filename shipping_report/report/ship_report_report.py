@@ -1,7 +1,7 @@
 from odoo import models, api
 
 class ShipReportPDF(models.AbstractModel):
-    _name = "report.ship_report.ship_profit_pdf_template"
+    _name = "report.shipping_report.ship_profit_pdf_template"
     _description = "Job Profit PDF Report"
 
     @api.model

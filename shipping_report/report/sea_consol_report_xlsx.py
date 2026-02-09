@@ -2,7 +2,7 @@ from odoo import models
 from odoo.tools import format_date
 
 class SeaConsolXlsx(models.AbstractModel):
-    _name = "report.sea_consol_register.simple_xlsx"
+    _name = "report.shipping_report.simple_xlsx"
     _inherit = "report.report_xlsx.abstract"
 
     def generate_xlsx_report(self, workbook, data, records):

@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 
 class JobProfitByChargeXlsx(models.AbstractModel):
-    _name = 'report.jobprofit_charge.jobprofit_by_charge_xlsx'
+    _name = 'report.shipping_report.jobprofit_by_charge_xlsx'
     _inherit = 'report.report_xlsx.abstract'
     _description = 'Job Profit By Charge XLSX Report'
 
