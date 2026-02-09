@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <menuitem
+        id="shipping_report_menu_root"
+        name="Shipping Reports"
+        parent="shipping.menu_root"
+        sequence="50"/>
+
+    <!-- SHIPMENT STATUS -->
+    <menuitem
+        id="shipping_report_menu_shipment_status"
+        name="Sea Export Shipment Status Register"
+        parent="shipping_report_menu_root"
+        action="shipping_report_action_shipment_status_wizard"
+        sequence="10"/>
+
+    <menuitem
+        id="shipping_report_menu_shipment_revenue"
+        name="Sea Export Shipment Register - Revenue"
+        parent="shipping_report_menu_root"
+        action="shipping_report_action_shipment_revenue_wizard"
+        sequence="20"/>
+
+    <menuitem
+    id="shipping_report_menu_quote_vs_transaction"
+    name="Quotation Vs Transaction"
+    parent="shipping_report_menu_root"
+    action="shipping_report_action_ship_quote_vs_transaction_wizard"
+    sequence="30"/>
+
+    <menuitem
+        id="shipping_report_menu_job_count_summary"
+        name="Job Count Summary by Branch"
+        parent="shipping_report_menu_root"
+        action="shipping_report_action_job_count_summary_wizard"
+        sequence="40"/>
+
+
+</odoo>

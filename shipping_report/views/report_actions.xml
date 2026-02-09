@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record id="shipping_report_action_shipment_status_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Sea Export Shipment Status Register</field>
+        <field name="res_model">shipment.status.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="shipping_report_action_shipment_revenue_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Sea Export Shipment Register - Revenue</field>
+        <field name="res_model">shipment.revenue.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="shipping_report_action_ship_quote_transaction_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Quotation Vs Transaction</field>
+        <field name="res_model">ship.quote.transaction.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <record id="shipping_report_action_job_count_summary_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Job Count Summary by Branch</field>
+        <field name="res_model">job.count.summary.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_quote_transaction_wizard_form" model="ir.ui.view">
+        <field name="name">ship.quote.transaction.wizard.form</field>
+        <field name="model">ship.quote.transaction.wizard</field>
+        <field name="arch" type="xml">
+
+            <form string="Quotation Transaction"
+                  create="false"
+                  edit="false">
+
+                <sheet>
+
+
+                    <group>
+
+                        <group string="Date Range">
+                            <field name="date_filter"/>
+
+                            <label for="date_from" string="Quotation Date"/>
+                            <div class="o_row">
+                                <field name="date_from"
+                                       class="oe_inline"
+                                       required="1"
+                                       modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+                                <span class="oe_inline">-</span>
+                                <field name="date_to"
+                                       class="oe_inline"
+                                       required="1"
+                                       modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+                            </div>
+                        </group>
+
+                        <group string="Branch">
+                            <field name="branch_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+
+                    </group>
+
+
+                    <group>
+
+                        <group string="Department">
+                            <field name="department_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+
+                        <group string="Status">
+                            <field name="status"/>
+                        </group>
+
+                    </group>
+
+
+                    <group>
+
+                        <group string="Quoted To">
+                            <field name="quoted_to_id"
+                                   options="{'no_create': True}"/>
+                        </group>
+
+                        <group string="Quoted By">
+                            <field name="quoted_by_id"
+                                   options="{'no_create': True}"/>
+                        </group>
+
+                    </group>
+
+                </sheet>
+
+
+                <footer>
+                    <button name="action_export_xlsx"
+                            string="Generate"
+                            type="object"
+                            class="btn-primary"/>
+
+                    <button string="Close"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+
+            </form>
+
+        </field>
+    </record>
+
+</odoo>

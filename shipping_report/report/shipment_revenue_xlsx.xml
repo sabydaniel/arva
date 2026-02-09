@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="shipment_revenue_xlsx" model="ir.actions.report">
+        <field name="name">Sea Export Shipment Register - Revenue XLS</field>
+        <field name="model">ship.shipment</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">shipment_revenue.shipment_revenue_xlsx</field>
+        <field name="report_file">Sea_Export_Shipment_Register_Revenue</field>
+    </record>
+
+</odoo>

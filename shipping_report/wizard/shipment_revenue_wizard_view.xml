@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_shipment_revenue_wizard_form" model="ir.ui.view">
+        <field name="name">shipment.revenue.wizard.form</field>
+        <field name="model">shipment.revenue.wizard</field>
+        <field name="arch" type="xml">
+
+            <form string="Sea Export Shipment Register - Revenue"
+                  create="false"
+                  edit="false">
+
+
+                <header>
+
+                    <button name="action_export_xlsx"
+                            string="Export XLS"
+                            type="object"
+                            class="btn-primary"/>
+
+
+
+                </header>
+
+                <sheet>
+                    <group>
+
+                        <group string="Date Range">
+                            <field name="date_filter"/>
+
+                            <label for="date_from" string="Shipment Date"/>
+                            <div class="o_row">
+                                <field name="date_from"
+                                       class="oe_inline"
+                                       required="1"
+                                       modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+                                <span class="oe_inline">-</span>
+                                <field name="date_to"
+                                       class="oe_inline"
+                                       required="1"
+                                       modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+                            </div>
+                        </group>
+
+
+                        <group string="Branch">
+                            <field name="branch_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Shipper">
+                            <field name="shipper_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Search shipper..."/>
+                        </group>
+
+                        <group string="Consignee">
+                            <field name="consignee_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Search consignee..."/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Shipping Details">
+                            <field name="shipping_line_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Select shipping line..."/>
+                            <field name="destination_agent_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Select destination agent..."/>
+                        </group>
+
+                        <group string="Port Details">
+                            <field name="load_port_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Select load port..."/>
+                            <field name="discharge_port_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Select discharge port..."/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Cargo Information">
+                            <field name="consol_type"/>
+                            <field name="cargo_type"/>
+                        </group>
+                    </group>
+                </sheet>
+
+
+                <footer>
+                    <button string="Close"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

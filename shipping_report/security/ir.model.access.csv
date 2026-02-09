@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shipment_status_wizard,shipment.status.wizard,model_shipment_status_wizard,,1,1,1,1
+access_shipment_revenue_wizard,shipment.revenue.wizard,model_shipment_revenue_wizard,,1,0,1,0
+access_ship_quote_transaction_wizard,ship.quote.transaction.wizard,model_ship_quote_transaction_wizard,,1,1,1,0
+access_client_analysis_wizard,client.analysis.wizard,model_client_analysis_wizard,,1,1,1,1
+access_job_count_summary_wizard,job.count.summary.wizard,model_job_count_summary_wizard,,1,1,1,1

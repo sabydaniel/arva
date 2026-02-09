@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_job_count_summary_document">
+        <t t-call="web.external_layout">
+
+            <style>
+                @page {
+                size: A4;
+                margin: 10mm;
+                }
+
+                table.job-count-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 12px;
+                font-size: 9pt;
+                font-family: Arial, sans-serif;
+                }
+
+
+                .job-count-table thead th {
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
+                padding: 4px;
+                font-weight: bold;
+                font-size: 8pt;
+                text-align: center;
+                }
+
+
+                .job-count-table tbody td {
+                border: none !important;
+                padding: 3px;
+                text-align: center;
+                }
+
+                .text-left { text-align: left; }
+                .text-right { text-align: right; }
+
+
+                .branch-header {
+                font-weight: bold;
+                padding-top: 6px;
+                }
+
+
+                .total-row,
+                .grand-total-row {
+                font-weight: bold;
+                }
+
+                .report-header h2 {
+                margin: 0;
+                font-size: 14pt;
+                }
+
+                .report-header p {
+                margin: 2px 0;
+                font-size: 10pt;
+                }
+
+                .report-note {
+                font-weight: bold;
+                font-size: 9pt;
+                margin: 6px 0;
+                }
+
+                .print-info {
+                font-size: 8pt;
+                }
+            </style>
+
+            <div class="page">
+
+
+                <div class="report-header">
+                    <h2 t-esc="o.env.company.name"/>
+                    <h2>Job Count Summary by Branch</h2>
+
+                    <p>
+                        Job Opened :
+                        <span t-esc="o.date_from.strftime('%d-%b-%y')"/>
+                        -
+                        <span t-esc="o.date_to.strftime('%d-%b-%y')"/>
+                        <t t-if="o.branch_id">
+                            , Branch :
+                            <span t-field="o.branch_id.name"/>
+                        </t>
+                    </p>
+
+                    <p class="report-note">
+                        Note: This report only counts Accounting Jobs Activated on Shipments and Standalone Declaration
+                        Records
+                    </p>
+
+                    <p class="print-info">
+                        Printed by
+                        <span t-esc="o.env.user.name"/>
+                        |
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%b-%y %I:%M %p')"/>
+                    </p>
+                </div>
+
+
+                <t t-set="data" t-value="o._get_report_data()"/>
+
+                <table class="job-count-table">
+                    <thead>
+                        <tr>
+                            <th>Job Header<br/>Branch
+                            </th>
+                            <th>Department</th>
+                            <th>Freight</th>
+                            <th>Mode</th>
+                            <th>Accounting</th>
+                            <th>Shipments</th>
+                            <th>Standalone</th>
+                            <th>Ship + Decl</th>
+                            <th>FCL TEU</th>
+                            <th>W/V</th>
+                            <th>AIR KG</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <t t-foreach="data['branches']" t-as="branch">
+
+
+                            <tr>
+                                <td colspan="11" class="branch-header text-left">
+                                    BRANCH :
+                                    <t t-esc="branch['branch_code']"/>
+                                </td>
+                            </tr>
+
+
+                            <t t-foreach="branch['rows']" t-as="row">
+                                <tr>
+                                    <td class="text-left">
+                                        <t t-esc="branch['branch_code']"/>
+                                    </td>
+                                    <td class="text-left">
+                                        <t t-esc="row['department']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="row['freight_direction']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="row['transport_mode']"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="row['accounting_job_headers']"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="row['job_headers_on_shipments']"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="row.get('job_headers_standalone', 0)"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="row.get('job_headers_with_declarations', 0)"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="'%.2f' % row.get('shipment_fcl_teu', 0)"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="'%.3f' % row.get('shipment_chargeable_wv', 0)"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="'%.3f' % row.get('shipment_air_kg', 0)"/>
+                                    </td>
+                                </tr>
+                            </t>
+
+
+                            <tr class="total-row">
+                                <td colspan="4" class="text-left">
+                                    Total Branch
+                                    <t t-esc="branch['branch_code']"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="branch['totals']['accounting_job_headers']"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="branch['totals']['job_headers_on_shipments']"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="branch['totals'].get('job_headers_standalone', 0)"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="branch['totals'].get('job_headers_with_declarations', 0)"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="'%.2f' % branch['totals'].get('shipment_fcl_teu', 0)"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="'%.3f' % branch['totals'].get('shipment_chargeable_wv', 0)"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="'%.3f' % branch['totals'].get('shipment_air_kg', 0)"/>
+                                </td>
+                            </tr>
+
+                        </t>
+
+
+                        <tr class="grand-total-row">
+                            <td colspan="4" class="text-left">GRAND TOTAL</td>
+                            <td class="text-right">
+                                <t t-esc="data['grand_total']['accounting_job_headers']"/>
+                            </td>
+                            <td class="text-right">
+                                <t t-esc="data['grand_total']['job_headers_on_shipments']"/>
+                            </td>
+                            <td class="text-right">
+                                <t t-esc="data['grand_total'].get('job_headers_standalone', 0)"/>
+                            </td>
+                            <td class="text-right">
+                                <t t-esc="data['grand_total'].get('job_headers_with_declarations', 0)"/>
+                            </td>
+                            <td class="text-right">
+                                <t t-esc="'%.2f' % data['grand_total'].get('shipment_fcl_teu', 0)"/>
+                            </td>
+                            <td class="text-right">
+                                <t t-esc="'%.3f' % data['grand_total'].get('shipment_chargeable_wv', 0)"/>
+                            </td>
+                            <td class="text-right">
+                                <t t-esc="'%.3f' % data['grand_total'].get('shipment_air_kg', 0)"/>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </t>
+    </template>
+
+
+    <template id="report_job_count_summary">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="job_count_summary.report_job_count_summary_document"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>
