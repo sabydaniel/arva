@@ -1,0 +1,23 @@
+<odoo>
+
+    <menuitem id="menu_shipment_root"
+              name="Shipment"/>
+
+    <record id="action_shipment" model="ir.actions.act_window">
+        <field name="name">Shipments</field>
+        <field name="res_model">shipment.shipment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_shipment"
+              name="Shipments"
+              parent="menu_shipment_root"
+              action="action_shipment"/>
+
+
+    <menuitem id="menu_shipment_import"
+              name="Shipment Import"
+              parent="menu_shipment_root"
+              action="action_shipment_import_wizard"/>
+
+</odoo>

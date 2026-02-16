@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shipment,shipment.shipment,model_shipment_shipment,,1,1,1,1
+access_shipment_charge,shipment.charge,model_shipment_charge,,1,1,1,1
+access_shipment_import_wizard,shipment.import.wizard,model_shipment_import_wizard,,1,1,1,1
