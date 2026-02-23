@@ -12,7 +12,7 @@
         id="menu_sea_consol_register"
         name="Sea Export Consol Register"
         parent="shipping.menu_shipping_new_report"
-        action="action_sea_consol_wizard"
+        action="shipping_report.action_sea_consol_wizard"
         sequence="90"/>
 
 </odoo>

@@ -12,7 +12,7 @@
         id="menu_sea_export_work_volume"
         name="Sea Export Work Volume"
         parent="shipping.menu_shipping_new_report"
-        action="action_sea_export_work_volume_wizard"
+        action="shipping_report.action_sea_export_work_volume_wizard"
         sequence="50"/>
 
 </odoo>
