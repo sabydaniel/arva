@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_shipment_report_wizard" model="ir.ui.view">
+        <field name="name">shipment.report.wizard.form</field>
+        <field name="model">shipment.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Shipment Report">
+                <group>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                    <field name="customer_id"/>
+                </group>
+                <footer>
+                    <button name="action_generate_xlsx_report" string="Generate Report" type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="shipment_report_action" model="ir.actions.act_window">
+        <field name="name">Shipment Report</field>
+        <field name="res_model">shipment.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <record id="shipment_report_xlsx_action" model="ir.actions.report">
+        <field name="name">Shipment Report XLSX</field>
+        <field name="model">shipment.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">shipping.shipment_xlsx</field>
+        <field name="print_report_name">'Shipment_Report_' + (object.from_date.strftime("%Y-%m-%d") if object.from_date
+            else "") + '_' + (object.to_date.strftime("%Y-%m-%d") if object.to_date else "")
+        </field>
+
+    </record>
+
+
+    <menuitem id="menu_shipment_new_report"
+              name="Shipment Report"
+              parent="menu_shipping_new_report"
+              action="shipment_report_action"
+              sequence="15"/>
+</odoo>
