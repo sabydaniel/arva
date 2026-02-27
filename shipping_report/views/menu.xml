@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="shipping_report_action_shipment_revenue_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Sea Export Shipment Register - Revenue</field>
+        <field name="res_model">shipment.revenue.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="shipping_report_action_shipment_status_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Shipment Status</field>
+        <field name="res_model">shipment.status.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="shipping_report_action_client_analysis_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Client Analysis</field>
+        <field name="res_model">client.analysis.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="shipping_report_action_shipment_consolidation_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Shipment Consolidation</field>
+        <field name="res_model">shipment.consolidation.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="shipping_report_action_job_count_summary_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Job Count Summary</field>
+        <field name="res_model">job.count.summary.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="shipping_report_action_shipment_listing_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Shipment Listing</field>
+        <field name="res_model">shipment.listing.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="shipping_report_action_ship_quote_transaction_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Quotation Vs Transaction</field>
+        <field name="res_model">ship.quote.transaction.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+
+    <menuitem id="shipping_report_menu_shipment_revenue"
+              name="Sea Export Shipment Register - Revenue"
+              parent="shipping.menu_shipping_new_report"
+              action="shipping_report_action_shipment_revenue_wizard"
+              sequence="10"/>
+
+    <menuitem id="shipping_report_menu_shipment_status"
+              name="Shipment Status"
+              parent="shipping.menu_shipping_new_report"
+              action="shipping_report_action_shipment_status_wizard"
+              sequence="20"/>
+
+    <menuitem id="shipping_report_menu_client_analysis"
+              name="Client Analysis"
+              parent="shipping.menu_shipping_new_report"
+              action="shipping_report_action_client_analysis_wizard"
+              sequence="30"/>
+
+    <menuitem id="shipping_report_menu_shipment_consolidation"
+              name="Shipment Consolidation"
+              parent="shipping.menu_shipping_new_report"
+              action="shipping_report_action_shipment_consolidation_wizard"
+              sequence="40"/>
+
+    <menuitem id="shipping_report_menu_job_count_summary"
+              name="Job Count Summary"
+              parent="shipping.menu_shipping_new_report"
+              action="shipping_report_action_job_count_summary_wizard"
+              sequence="50"/>
+
+    <menuitem id="shipping_report_menu_shipment_listing"
+              name="Shipment Listing"
+              parent="shipping.menu_shipping_new_report"
+              action="shipping_report_action_shipment_listing_wizard"
+              sequence="60"/>
+
+    <menuitem id="shipping_report_menu_ship_quote_transaction"
+              name="Quotation Vs Transaction"
+              parent="shipping.menu_shipping_new_report"
+              action="shipping_report_action_ship_quote_transaction_wizard"
+              sequence="70"/>
+
+</odoo>

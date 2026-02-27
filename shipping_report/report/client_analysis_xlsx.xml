@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="shipping_report_client_analysis_xlsx"
+            model="ir.actions.report">
+        <field name="name">Client Analysis XLS</field>
+        <field name="model">client.analysis.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">shipping_report.client_analysis_xlsx</field>
+        <field name="report_file">Client_Analysis</field>
+    </record>
+
+</odoo>

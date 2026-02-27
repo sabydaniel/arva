@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_ship_report_wizard" model="ir.ui.view">
+        <field name="name">ship.report.wizard.form</field>
+        <field name="model">ship.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Job Profit Report">
+                <group>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="date_filter"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="department_id"/>
+                    </group>
+
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="carrier_id"/>
+                        <field name="customer_id"/>
+                        <field name="salesperson_id"/>
+                        <field name="report_type"/>
+                    </group>
+                </group>
+
+                <footer>
+                    <button name="action_print_pdf" type="object"
+                            string="Print PDF" class="btn-primary"/>
+                    <button name="action_export_xlsx" type="object"
+                            string="Export XLSX"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

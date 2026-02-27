@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="job_count_summary_xlsx" model="ir.actions.report">
+        <field name="name">Job Count Summary (XLSX)</field>
+        <field name="model">job.count.summary.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">shipping_report.job_count_summary_xlsx</field>
+        <field name="report_file">job_count_summary</field>
+    </record>
+
+</odoo>

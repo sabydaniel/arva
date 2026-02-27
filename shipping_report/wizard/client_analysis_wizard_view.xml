@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="shipping_report_view_client_analysis_wizard_form"
+            model="ir.ui.view">
+        <field name="name">client.analysis.wizard.form</field>
+        <field name="model">client.analysis.wizard</field>
+        <field name="arch" type="xml">
+
+            <form string="Client Analysis"
+                  create="false"
+                  edit="false">
+
+                <sheet>
+
+                    <group col="2">
+
+                        <group string="Primary Filters">
+
+                            <field name="company_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+
+                            <field name="branch_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+
+                            <field name="billing_client_id"/>
+                            <field name="local_client_id"/>
+
+                        </group>
+
+                        <group string="Period 1">
+
+                            <field name="date_filter"/>
+
+                            <field name="period1_from"
+                                   modifiers="{'readonly': [('date_filter','!=','custom')]}"/>
+
+                            <field name="period1_to"
+                                   modifiers="{'readonly': [('date_filter','!=','custom')]}"/>
+
+                        </group>
+
+                    </group>
+
+                    <group string="Period 2" col="2">
+
+                        <field name="date_filter_p2"/>
+
+                        <field name="period2_from"
+                               modifiers="{'readonly': [('date_filter_p2','!=','custom')]}"/>
+
+                        <field name="period2_to"
+                               modifiers="{'readonly': [('date_filter_p2','!=','custom')]}"/>
+
+                    </group>
+
+                </sheet>
+                <footer>
+                    <button name="action_export_xlsx"
+                            string="Export XLS"
+                            type="object"
+                            class="btn-primary"/>
+
+                    <button string="Cancel"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+
+            </form>
+
+        </field>
+    </record>
+
+</odoo>

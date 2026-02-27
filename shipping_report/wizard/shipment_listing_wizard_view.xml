@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_shipment_listing_wizard" model="ir.ui.view">
+        <field name="name">shipment.listing.wizard.form</field>
+        <field name="model">shipment.listing.wizard</field>
+        <field name="arch" type="xml">
+
+            <form string="Shipment Listing Report">
+
+                <group string="Filters" col="2">
+
+                    <group>
+                        <field name="company_id"
+                               options="{'no_create': True}"/>
+
+                        <field name="branch_id"
+                               domain="[('parent_id','=',company_id)]"
+                               options="{'no_create': True}"/>
+
+                        <field name="client_id"
+                               options="{'no_create': True}"/>
+                    </group>
+
+                    <group>
+                        <field name="freight_direction"/>
+                        <field name="shipment_transport"/>
+                    </group>
+
+                </group>
+
+                <group string="Client Role">
+                    <group col="3">
+                        <field name="is_consignor"/>
+                        <field name="is_consignee"/>
+                        <field name="is_billing_client"/>
+                    </group>
+                </group>
+
+                <footer>
+
+                    <button name="action_preview"
+                            string="Preview"
+                            type="object"
+                            class="btn-secondary"/>
+
+                    <button name="action_print_pdf"
+                            string="Print PDF"
+                            type="object"
+                            class="btn-primary"/>
+
+                    <button name="action_print_xlsx"
+                            string="Export XLS"
+                            type="object"
+                            class="btn-success"/>
+
+                    <button string="Cancel"
+                            special="cancel"
+                            class="btn-secondary"/>
+
+                </footer>
+
+            </form>
+
+        </field>
+    </record>
+
+</odoo>

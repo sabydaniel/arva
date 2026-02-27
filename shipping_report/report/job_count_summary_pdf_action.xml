@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_job_count_summary_pdf"
+            model="ir.actions.report">
+
+        <field name="name">Job Count Summary</field>
+        <field name="model">job.count.summary.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+
+        <field name="report_name">shipping_report.report_job_count_summary</field>
+
+        <field name="report_file">shipping_report.report_job_count_summary</field>
+
+    </record>
+
+</odoo>

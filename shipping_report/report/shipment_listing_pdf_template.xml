@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="report_shipment_listing_pdf">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h4>Shipment Listing Report</h4>
+
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Shipment</th>
+                                        <th>Type</th>
+                                        <th>Transport</th>
+                                        <th>Mode</th>
+                                        <th>Date</th>
+                                        <th>Consignor</th>
+                                        <th>Consignee</th>
+                                        <th>Customer</th>
+                                        <th>POL</th>
+                                        <th>POD</th>
+                                        <th>Weight</th>
+                                        <th>Volume</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o._get_shipments()" t-as="ship">
+                                        <tr>
+                                            <td><t t-esc="ship.name"/></td>
+                                            <td><t t-esc="ship.type_id.name or ''"/></td>
+                                            <td><t t-esc="ship.transport_id.name or ''"/></td>
+                                            <td><t t-esc="ship.mode_id.name or ''"/></td>
+                                            <td><t t-esc="ship.hbl_date or ''"/></td>
+                                            <td><t t-esc="ship.hbl_consigner_id.name or ''"/></td>
+                                            <td><t t-esc="ship.hbl_consignee_id.name or ''"/></td>
+                                            <td><t t-esc="ship.hbl_customer_id.name or ''"/></td>
+                                            <td><t t-esc="ship.hbl_portload_id.name or ''"/></td>
+                                            <td><t t-esc="ship.hbl_portdisch_id.name or ''"/></td>
+                                            <td><t t-esc="ship.hbl_weight or ''"/></td>
+                                            <td><t t-esc="ship.hbl_volume or ''"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

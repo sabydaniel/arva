@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="shipment_listing_xlsx"
+            model="ir.actions.report">
+
+        <field name="name">Shipment Listing XLSX</field>
+        <field name="model">shipment.listing.wizard</field>
+        <field name="report_type">xlsx</field>
+
+
+        <field name="report_name">shipping_report.shipment_listing_xlsx</field>
+
+        <field name="report_file">Shipment_Listing</field>
+
+    </record>
+
+</odoo>

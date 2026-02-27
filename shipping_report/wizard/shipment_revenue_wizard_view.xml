@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="shipping_report_view_shipment_revenue_wizard_form" model="ir.ui.view">
+        <field name="name">shipment.revenue.wizard.form</field>
+        <field name="model">shipment.revenue.wizard</field>
+        <field name="arch" type="xml">
+
+            <form string="Sea Export Shipment Register - Revenue"
+                  create="false"
+                  edit="false">
+
+                <footer>
+                    <button name="action_export_xlsx"
+                            string="Export XLS"
+                            type="object"
+                            class="btn-primary"/>
+
+                    <button string="Close"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+                <sheet>
+
+
+                    <group col="2">
+                        <field name="company_id"
+                               options="{'no_create': True, 'no_open': True}"/>
+
+                        <field name="branch_id"
+                               options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+
+
+                    <group string="Date Range">
+                        <field name="date_filter"/>
+
+                        <label for="date_from" string="Shipment Date"/>
+                        <div class="o_row">
+                            <field name="date_from"
+                                   class="oe_inline"
+                                   required="1"
+                                   modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+                            <span class="oe_inline">-</span>
+                            <field name="date_to"
+                                   class="oe_inline"
+                                   required="1"
+                                   modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+                        </div>
+                    </group>
+
+
+                    <group col="2">
+                        <group string="Shipper">
+                            <field name="shipper_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Search shipper..."/>
+                        </group>
+
+                        <group string="Consignee">
+                            <field name="consignee_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Search consignee..."/>
+                        </group>
+                    </group>
+
+
+                    <group col="2">
+                        <group string="Shipping Details">
+                            <field name="shipping_line_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Select shipping line..."/>
+                            <field name="destination_agent_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Select destination agent..."/>
+                        </group>
+
+                        <group string="Port Details">
+                            <field name="load_port_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Select load port..."/>
+                            <field name="discharge_port_id"
+                                   options="{'no_create': True}"
+                                   placeholder="Select discharge port..."/>
+                        </group>
+                    </group>
+
+
+                    <group string="Cargo Information">
+                        <field name="consol_type"/>
+                        <field name="cargo_type"/>
+                    </group>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="shipping_report_action_shipment_revenue_wizard" model="ir.actions.act_window">
+        <field name="name">Sea Export Shipment Register - Revenue</field>
+        <field name="res_model">shipment.revenue.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="shipping_report_view_shipment_revenue_wizard_form"/>
+    </record>
+
+
+    <menuitem id="shipping_report_root"
+              name="Shipping Reports"
+              sequence="50"/>
+
+
+    <menuitem
+            id="shipping_report_menu_shipment_revenue"
+            name="Sea Export Shipment Register - Revenue"
+            parent="shipping_report_root"
+            action="shipping_report_action_shipment_revenue_wizard"
+            sequence="10"/>
+
+</odoo>

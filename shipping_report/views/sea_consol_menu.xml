@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_sea_consol_wizard" model="ir.actions.act_window">
+        <field name="name">Sea Export Consol Register</field>
+        <field name="res_model">sea.consol.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_sea_consol_register"
+        name="Sea Export Consol Register"
+        parent="shipping.menu_shipping_new_report"
+        action="shipping_report.action_sea_consol_wizard"
+        sequence="90"/>
+
+</odoo>

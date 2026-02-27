@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_ship_quote_vs_transaction_xlsx"
+            model="ir.actions.report">
+
+        <field name="name">Quotation Vs Transaction (XLSX)</field>
+        <field name="model">ship.quote.transaction.wizard</field>
+        <field name="report_type">xlsx</field>
+
+
+        <field name="report_name">shipping_report.ship_quote_vs_transaction_xlsx</field>
+        <field name="report_file">shipping_report.ship_quote_vs_transaction_xlsx</field>
+
+    </record>
+
+</odoo>

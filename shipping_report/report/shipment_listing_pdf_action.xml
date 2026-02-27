@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_shipment_listing_pdf"
+            model="ir.actions.report">
+
+        <field name="name">Shipment Listing PDF</field>
+        <field name="model">shipment.listing.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+
+
+        <field name="report_name">shipping_report.report_shipment_listing_pdf</field>
+
+        <field name="report_file">shipping_report.report_shipment_listing_pdf</field>
+
+    </record>
+
+</odoo>

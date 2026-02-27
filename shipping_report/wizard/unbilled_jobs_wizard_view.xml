@@ -1,0 +1,51 @@
+<odoo>
+
+    <record id="view_unbilled_jobs_wizard" model="ir.ui.view">
+        <field name="name">unbilled.jobs.wizard.form</field>
+        <field name="model">unbilled.jobs.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Unbilled Jobs">
+
+                <group>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="date_filter"/>
+                    </group>
+
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+
+                    </group>
+                </group>
+
+                <group>
+                    <field name="invoiced"/>
+                    <field name="purchased"/>
+                </group>
+
+                <footer>
+                    <button name="action_generate_report"
+                            type="object"
+                            string="Generate Report"
+                            class="btn-primary"/>
+
+                    <button string="Cancel"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="action_unbilled_jobs_wizard"
+            model="ir.actions.act_window">
+        <field name="name">Unbilled Jobs</field>
+        <field name="res_model">unbilled.jobs.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,52 @@
+<odoo>
+    <record id="sea_consol_wizard_form" model="ir.ui.view">
+        <field name="name">sea.consol.wizard.form</field>
+        <field name="model">sea.consol.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sea Export Consol Register">
+                <sheet>
+                    <group col="2">
+                        <field name="company_id" required="1"/>
+                        <field name="branch_id"/>
+                    </group>
+                    <group col="4">
+
+                        <group string="Date">
+                            <field name="date_filter"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+
+                        <group string="Organization">
+                            <field name="branch_id"/>
+                            <field name="department_id"/>
+                        </group>
+
+                        <group string="Shipment">
+                            <field name="shipping_line_id"/>
+                            <field name="consol_type"/>
+                            <field name="cargo_type"/>
+                        </group>
+
+                        <group string="Ports">
+                            <field name="port_of_load_id"/>
+                            <field name="port_of_discharge_id"/>
+                        </group>
+
+                        <group string="Status">
+                            <field name="status"/>
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button name="generate_xlsx"
+                                type="object"
+                                string="Generate XLSX"
+                                class="btn-primary"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

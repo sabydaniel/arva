@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="shipping_report_view_shipment_status_wizard_form"
+            model="ir.ui.view">
+        <field name="name">shipment.status.wizard.form</field>
+        <field name="model">shipment.status.wizard</field>
+        <field name="arch" type="xml">
+
+            <form string="Sea Export Shipment Status Register"
+                  create="false"
+                  edit="false">
+
+                <sheet>
+
+                    <group col="2">
+
+                        <group string="Primary Filters">
+                            <field name="company_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+
+                            <field name="branch_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+
+                            <field name="department_id"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+
+
+                        <group string="Date Range">
+                            <field name="date_filter"/>
+
+                            <field name="date_from"
+                                   modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+
+                            <field name="date_to"
+                                   modifiers="{'readonly': [['date_filter', '!=', 'custom']]}"/>
+                        </group>
+
+                    </group>
+
+
+                    <group string="Filters" col="2">
+
+                        <field name="shipper_id"/>
+                        <field name="consignee_id"/>
+                    </group>
+
+                </sheet>
+                <footer>
+                    <button name="action_generate_xlsx"
+                            type="object"
+                            string="Generate"
+                            class="btn-primary"/>
+
+                    <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+
+            </form>
+
+        </field>
+    </record>
+
+</odoo>

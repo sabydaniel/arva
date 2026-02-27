@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_job_count_summary_wizard"
+            model="ir.ui.view">
+
+        <field name="name">job.count.summary.wizard.form</field>
+        <field name="model">job.count.summary.wizard</field>
+
+        <field name="arch" type="xml">
+            <form string="Job Count Summary by Branch">
+
+                <sheet>
+
+                    <group col="2">
+
+                        <group string="Company / Branch">
+                            <field name="company_id"
+                                   options="{'no_create': True}"/>
+
+                            <field name="branch_id"
+                                   options="{'no_create': True}"/>
+                        </group>
+
+
+                        <group string="Date Range">
+                            <field name="date_filter"/>
+
+                            <field name="date_from"
+                                   modifiers="{'readonly':[('date_filter','!=','custom')]}"/>
+
+                            <field name="date_to"
+                                   modifiers="{'readonly':[('date_filter','!=','custom')]}"/>
+                        </group>
+
+                    </group>
+
+                </sheet>
+
+                <footer>
+                    <button name="action_print_pdf"
+                            type="object"
+                            string="Print PDF"
+                            class="btn-primary"/>
+
+                    <button name="action_export_xlsx"
+                            type="object"
+                            string="Export Excel"
+                            class="btn-success"/>
+
+                    <button string="Cancel"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+
+            </form>
+        </field>
+
+    </record>
+
+</odoo>

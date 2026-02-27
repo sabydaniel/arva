@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="shipping_report_shipment_consolidation_xlsx"
+            model="ir.actions.report">
+
+        <field name="name">Shipment Consolidation XLS</field>
+        <field name="model">shipment.consolidation.wizard</field>
+        <field name="report_type">xlsx</field>
+
+
+        <field name="report_name">shipping_report.shipment_consolidation_xlsx</field>
+
+        <field name="report_file">Shipment_Consolidation</field>
+
+        <field name="print_report_name">
+            'Sea_Export_Consolidation_%s_to_%s' % (object.date_from or '', object.date_to or '')
+        </field>
+
+    </record>
+
+</odoo>
